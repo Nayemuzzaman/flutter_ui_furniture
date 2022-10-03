@@ -1,6 +1,4 @@
 import 'package:flutter/material.dart';
-import 'package:flutter/src/foundation/key.dart';
-import 'package:flutter/src/widgets/framework.dart';
 
 class HouseBottomNav extends StatefulWidget {
   const HouseBottomNav({Key? key}) : super(key: key);
@@ -10,10 +8,42 @@ class HouseBottomNav extends StatefulWidget {
 }
 
 class _HouseBottomNavState extends State<HouseBottomNav> {
+  int _currentIndex = 0;
+  Widget getWidgets(index) {
+    switch (index) {
+      case 0:
+        return const Center(
+          child: Text("Home"),
+        );
+      case 1:
+        return const Center(
+          child: Text("Dashboard"),
+        );
+      case 2:
+        return const Center(
+          child: Text("Cart"),
+        );
+      case 3:
+        return const Center(
+          child: Text("Profile"),
+        );
+    }
+    return Container();
+  }
+
   @override
   Widget build(BuildContext context) {
     return Scaffold(
       bottomNavigationBar: BottomNavigationBar(
+        currentIndex: _currentIndex,
+        onTap: (int index) {
+          setState(() {
+            _currentIndex = index;
+          });
+        },
+        type: BottomNavigationBarType.fixed,
+        showUnselectedLabels: false,
+        showSelectedLabels: false,
         selectedItemColor: Colors.yellow.shade800,
         unselectedItemColor: Colors.yellow.shade800.withOpacity(0.6),
         items: const [
@@ -35,6 +65,7 @@ class _HouseBottomNavState extends State<HouseBottomNav> {
           ),
         ],
       ),
+      body: getWidgets(_currentIndex),
     );
   }
 }
