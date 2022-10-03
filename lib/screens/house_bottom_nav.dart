@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_ui_furniture/screens/home_page.dart';
 
 class HouseBottomNav extends StatefulWidget {
   const HouseBottomNav({Key? key}) : super(key: key);
@@ -9,43 +10,43 @@ class HouseBottomNav extends StatefulWidget {
 
 class _HouseBottomNavState extends State<HouseBottomNav> {
   int _currentIndex = 0;
+  // body part
   Widget getWidgets(index) {
     switch (index) {
       case 0:
-        return  Center(
-          child: Text("Home",
-          style: TextStyle(
-            fontWeight: FontWeight.bold,
-            color: Colors.yellow.shade600,
-            fontSize: 50,
-          ),),
-        );
+        return const HomePage();
       case 1:
-        return  Center(
-          child: Text("Dashboard",
-          style: TextStyle(
-            fontWeight: FontWeight.bold,
-            color: Colors.yellow.shade600,
-            fontSize: 50,
-          ),),
+        return Center(
+          child: Text(
+            "Dashboard",
+            style: TextStyle(
+              fontWeight: FontWeight.bold,
+              color: Colors.yellow.shade600,
+              fontSize: 50,
+            ),
+          ),
         );
       case 2:
-        return  Center(
-          child: Text("Cart",
-          style: TextStyle(
-            fontWeight: FontWeight.bold,
-            color: Colors.yellow.shade600,
-            fontSize: 50,
-          ),),
+        return Center(
+          child: Text(
+            "Cart",
+            style: TextStyle(
+              fontWeight: FontWeight.bold,
+              color: Colors.yellow.shade600,
+              fontSize: 50,
+            ),
+          ),
         );
       case 3:
-        return  Center(
-          child: Text("Profile", 
-          style: TextStyle(
-            fontWeight: FontWeight.bold,
-            color: Colors.yellow.shade600,
-            fontSize: 50,
-          ),),
+        return Center(
+          child: Text(
+            "Profile",
+            style: TextStyle(
+              fontWeight: FontWeight.bold,
+              color: Colors.yellow.shade600,
+              fontSize: 50,
+            ),
+          ),
         );
     }
     return Container();
