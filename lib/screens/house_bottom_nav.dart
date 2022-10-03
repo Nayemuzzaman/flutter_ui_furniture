@@ -12,20 +12,40 @@ class _HouseBottomNavState extends State<HouseBottomNav> {
   Widget getWidgets(index) {
     switch (index) {
       case 0:
-        return const Center(
-          child: Text("Home"),
+        return  Center(
+          child: Text("Home",
+          style: TextStyle(
+            fontWeight: FontWeight.bold,
+            color: Colors.yellow.shade600,
+            fontSize: 50,
+          ),),
         );
       case 1:
-        return const Center(
-          child: Text("Dashboard"),
+        return  Center(
+          child: Text("Dashboard",
+          style: TextStyle(
+            fontWeight: FontWeight.bold,
+            color: Colors.yellow.shade600,
+            fontSize: 50,
+          ),),
         );
       case 2:
-        return const Center(
-          child: Text("Cart"),
+        return  Center(
+          child: Text("Cart",
+          style: TextStyle(
+            fontWeight: FontWeight.bold,
+            color: Colors.yellow.shade600,
+            fontSize: 50,
+          ),),
         );
       case 3:
-        return const Center(
-          child: Text("Profile"),
+        return  Center(
+          child: Text("Profile", 
+          style: TextStyle(
+            fontWeight: FontWeight.bold,
+            color: Colors.yellow.shade600,
+            fontSize: 50,
+          ),),
         );
     }
     return Container();
