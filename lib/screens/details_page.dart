@@ -84,7 +84,7 @@ class _DetailsPageState extends State<DetailsPage> {
                  Positioned(
                    bottom: 30,
                    left: 20,
-
+                   
                    child: Column(
                      children: [
                        Text("More Choice",
