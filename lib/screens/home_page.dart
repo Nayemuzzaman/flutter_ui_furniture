@@ -189,7 +189,9 @@ class _HomePageState extends State<HomePage>
                     top: 50,
                     child: GestureDetector(
                       onTap: () {
-                        
+                        Navigator.of(context).push(
+                          MaterialPageRoute(builder: (context) => const DetailsPage()),
+                        );
                       },
                       child: Image.asset(
                         "assets/yellow_chair.png",
