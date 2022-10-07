@@ -1,3 +1,4 @@
+
 import 'package:flutter/material.dart';
 
 class DetailsPage extends StatefulWidget {
@@ -27,10 +28,12 @@ class _DetailsPageState extends State<DetailsPage> {
     },
   ];
   String? selectedImage;
+  Color? selectedColor;
 
   @override
   void initState() {
     selectedImage = imagePreviews[0]["image"];
+    selectedColor = imagePreviews[0]["color"];
     super.initState();
   }
 
@@ -47,7 +50,7 @@ class _DetailsPageState extends State<DetailsPage> {
             Container(
               height: height / 2 + 80,
               width: width,
-              color: Colors.yellow.shade800,
+              color: selectedColor,
               child: Stack(
                 children: [
                   Padding(
@@ -139,6 +142,7 @@ class _DetailsPageState extends State<DetailsPage> {
                                     onTap: () {
                                       setState(() {
                                         selectedImage = imagePreview["image"];
+                                        selectedColor = imagePreview["color"];
                                       });
                                     },
                                     child: CircleAvatar(
@@ -156,10 +160,93 @@ class _DetailsPageState extends State<DetailsPage> {
                   ),
                 ],
               ),
+            ),
+            Positioned(
+              bottom: 0,
+              child: Container(
+                height: height / 2 - 60,
+                width: width,
+                padding: const EdgeInsets.all(40),
+                decoration: const BoxDecoration(
+                    color: Colors.white,
+                    borderRadius:
+                        BorderRadius.vertical(top: Radius.circular(20))),
+                child: Column(
+                  mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                  crossAxisAlignment: CrossAxisAlignment.start,
+                  children: [
+                    Row(
+                      children: [
+                        moreDetails("Price", "\$299"),
+                        const SizedBox(
+                          width: 15,
+                        ),
+                        moreDetails("Brand", "Hala"),
+                        const SizedBox(
+                          width: 15,
+                        ),
+                        moreDetails("From", "USA"),
+                      ],
+                    ),
+                    Text(
+                      "Details: ",
+                      style: TextStyle(
+                        fontSize: 15,
+                        fontWeight: FontWeight.w700,
+                        color: selectedColor,
+                      ),
+                    ),
+                    Text(
+                      "- Zinc-phosphate coated electro-static epoxy powder oven baked paint finish that confirms anti-rust, shiny color and longevity. \n- Free fitting service by expert technicians. \n- One Year Free Service warranty for any manufacturing fault.",
+                      style: TextStyle(
+                        fontSize: 13,
+                        fontWeight: FontWeight.w700,
+                        color: selectedColor,
+                      ),
+                    ),
+                    Container(
+                      height: 50,
+                      width: width,
+                      child: ElevatedButton(
+                        onPressed: () {},
+                        style: ElevatedButton.styleFrom(
+                          primary: selectedColor,
+                        ),
+                        child: const Text(
+                          "Buy Now",
+                          style: TextStyle(
+                            fontSize: 16,
+                          ),
+                        ),
+                      ),
+                    ),
+                  ],
+                ),
+              ),
             )
           ],
         ),
       ),
     );
   }
+
+  Widget moreDetails(String title, String data) => Column(
+        children: [
+          Text(
+            title,
+            style: const TextStyle(
+              fontWeight: FontWeight.w700,
+              fontSize: 16,
+            ),
+          ),
+          Text(
+            data,
+            style: TextStyle(
+              color: selectedColor,
+              fontWeight: FontWeight.w700,
+              fontSize: 18,
+            ),
+          ),
+        ],
+      );
 }
